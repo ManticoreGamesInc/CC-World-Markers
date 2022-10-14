@@ -20,7 +20,8 @@ How to use
 ==========
 
 Add the World Markers template to the hierarchy. The template comes with 2 examples created to show
-you how easy it is to create a marker.
+you how easy it is to create a marker. Make sure to set the target references in the World Markers
+data table.
 
 The component also supports removing and adding markers as runtime. This is useful for clearing a
 marker that the player has visited. Or adding a new marker for a quest.

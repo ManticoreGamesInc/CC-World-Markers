@@ -31,26 +31,28 @@ end
 
 function Tick(dt)
 	for key, row in pairs(markers) do
-		local target_pos = row.target:GetWorldPosition() + (Vector3.UP * WORLD_OFFSET)
-		local screen = UI.GetScreenSize()
-		local screen_pos = UI.GetScreenPosition(target_pos)
+		if(row.Target ~= nil) then
+			local target_pos = row.target:GetWorldPosition() + (Vector3.UP * WORLD_OFFSET)
+			local screen = UI.GetScreenSize()
+			local screen_pos = UI.GetScreenPosition(target_pos)
 
-		if(screen_pos ~= nil) then
-			screen_pos.x = screen_pos.x - screen.x / 2
-			screen_pos.y = screen_pos.y - screen.y / 2
+			if(screen_pos ~= nil) then
+				screen_pos.x = screen_pos.x - screen.x / 2
+				screen_pos.y = screen_pos.y - screen.y / 2
 
-			row.marker.x = CoreMath.Clamp(screen_pos.x, -screen.x / 2 + OFFSET, screen.x / 2 - OFFSET)
-			row.marker.y = CoreMath.Clamp(screen_pos.y, -screen.y / 2 + OFFSET, screen.y / 2 - OFFSET)
-		else
-			local player_pos = LOCAL_PLAYER:GetWorldPosition()
-			local point = (target_pos - player_pos)
+				row.marker.x = CoreMath.Clamp(screen_pos.x, -screen.x / 2 + OFFSET, screen.x / 2 - OFFSET)
+				row.marker.y = CoreMath.Clamp(screen_pos.y, -screen.y / 2 + OFFSET, screen.y / 2 - OFFSET)
+			else
+				local player_pos = LOCAL_PLAYER:GetWorldPosition()
+				local point = (target_pos - player_pos)
 
-			local view_rot = LOCAL_PLAYER:GetViewWorldRotation()
-			local view_right = Quaternion.New(view_rot):GetRightVector()
-			local dir = point:GetNormalized()
+				local view_rot = LOCAL_PLAYER:GetViewWorldRotation()
+				local view_right = Quaternion.New(view_rot):GetRightVector()
+				local dir = point:GetNormalized()
 
-			row.marker.x = (view_right .. dir) * (screen.x - OFFSET) / 2
-			row.marker.y = screen.y / 2 - OFFSET
+				row.marker.x = (view_right .. dir) * (screen.x - OFFSET) / 2
+				row.marker.y = screen.y / 2 - OFFSET
+			end
 		end
 	end
 end
