@@ -2,8 +2,8 @@
 
 # World Markers
 
-[![Build Status](https://github.com/ManticoreGamesInc/Bootcamp-World-Markers/workflows/CI/badge.svg)](https://github.com/ManticoreGamesInc/Bootcamp-World-Markers/actions/workflows/ci.yml?query=workflow%3ACI%29)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/ManticoreGamesInc/Bootcamp-World-Markers?style=plastic)
+[![Build Status](https://github.com/ManticoreGamesInc/CC-World-Markers/workflows/CI/badge.svg)](https://github.com/ManticoreGamesInc/CC-World-Markers/actions/workflows/ci.yml?query=workflow%3ACI%29)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/ManticoreGamesInc/CC-World-Markers?style=plastic)
 
 ![Preview](/Screenshots/Main.png)
 
