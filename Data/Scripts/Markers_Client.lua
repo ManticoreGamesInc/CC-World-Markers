@@ -31,7 +31,7 @@ end
 
 function Tick(dt)
 	for key, row in pairs(markers) do
-		if(row.Target ~= nil) then
+		if(row.target ~= nil) then
 			local target_pos = row.target:GetWorldPosition() + (Vector3.UP * WORLD_OFFSET)
 			local screen = UI.GetScreenSize()
 			local screen_pos = UI.GetScreenPosition(target_pos)
