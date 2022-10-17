@@ -1,3 +1,3 @@
-"Key[String]","Icon[Asset Reference]","Target[Core Object Reference]"
-"Fireworks","96F6ED2C2983A1F4","0000000000000000"
-"Blacksmith","9DD46BEBCF9B880B","0000000000000000"
+"Key[String]","Icon[Asset Reference]","Target[Core Object Reference]","HideIconOnReached[Bool]"
+"Fireworks","96F6ED2C2983A1F4","0000000000000000","True"
+"Blacksmith","9DD46BEBCF9B880B","0000000000000000","False"

@@ -26,15 +26,22 @@ local function add_marker(key)
 
 	local marker = World.SpawnAsset(row.Icon, { parent = CONTAINER })
 
-	markers[key] = { marker = marker, target = row.Target:GetObject() }
+	markers[key] = { marker = marker, target = row.Target:GetObject(), reached = false, auto_hide = row.HideIconOnReached }
 end
 
 function Tick(dt)
 	for key, row in pairs(markers) do
-		if(row.target ~= nil) then
+		if(row.target ~= nil and not row.reached) then
 			local target_pos = row.target:GetWorldPosition() + (Vector3.UP * WORLD_OFFSET)
 			local screen = UI.GetScreenSize()
 			local screen_pos = UI.GetScreenPosition(target_pos)
+			local player_pos = LOCAL_PLAYER:GetWorldPosition()
+			local point = (target_pos - player_pos)
+
+			if(row.auto_hide and point.size < 300) then
+				row.reached = true
+				row.marker.visibility = Visibility.FORCE_OFF
+			end
 
 			if(screen_pos ~= nil) then
 				screen_pos.x = screen_pos.x - screen.x / 2
@@ -43,9 +50,6 @@ function Tick(dt)
 				row.marker.x = CoreMath.Clamp(screen_pos.x, -screen.x / 2 + OFFSET, screen.x / 2 - OFFSET)
 				row.marker.y = CoreMath.Clamp(screen_pos.y, -screen.y / 2 + OFFSET, screen.y / 2 - OFFSET)
 			else
-				local player_pos = LOCAL_PLAYER:GetWorldPosition()
-				local point = (target_pos - player_pos)
-
 				local view_rot = LOCAL_PLAYER:GetViewWorldRotation()
 				local view_right = Quaternion.New(view_rot):GetRightVector()
 				local dir = point:GetNormalized()
