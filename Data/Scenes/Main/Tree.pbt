@@ -53,6 +53,16 @@ Objects {
           Name: "Name"
           String: "World Markers"
         }
+        Overrides {
+          Name: "Position"
+          Vector {
+          }
+        }
+        Overrides {
+          Name: "Rotation"
+          Rotator {
+          }
+        }
       }
     }
     TemplateAsset {
