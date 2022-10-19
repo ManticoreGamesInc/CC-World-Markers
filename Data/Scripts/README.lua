@@ -15,6 +15,12 @@ This component is useful to help guide players around the game.
 
 ----------------------------------------------------------------------------------------------------
 
+====
+NOTE
+====
+
+If the Dependent folders are empty in Project Content under Imported Content for this component, save and reload the project to fix it.
+
 ==========
 How to use
 ==========
